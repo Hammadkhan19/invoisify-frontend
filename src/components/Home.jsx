@@ -9,11 +9,12 @@ const Home = () => {
   const [invoices, setInvoices] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
+  const Base_URL = import.meta.env.VITE_API_URL;
   const fetchInvoices = async () => {
     if (!token) return;
     setLoading(true);
     try {
-      const response = await fetch("http://localhost:3000/invoices", {
+      const response = await fetch(`${Base_URL}/invoices`, {
         method: "GET",
         headers: {
           Authorization: `Bearer ${token}`,
