@@ -38,7 +38,7 @@ const InvoiceHistory = ({ invoices, loading, error, fetchInvoices }) => {
   };
 
   const handleView = (_id) => {
-    navigate(`/invoice/${_id}`);
+    navigate(`${Base_URL}/invoice/${_id}`);
   };
 
   const formatDate = (dateString) => {
