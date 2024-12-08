@@ -1,5 +1,10 @@
 import { StrictMode, useContext } from "react";
-import { BrowserRouter as Router, Routes, Route, Navigate } from "react-router-dom";
+import {
+  BrowserRouter as Router,
+  Routes,
+  Route,
+  Navigate,
+} from "react-router-dom";
 import ReactDOM from "react-dom/client";
 import "./index.css";
 import Home from "./components/Home";
@@ -19,6 +24,7 @@ const App = () => {
     <Router>
       <Navbar />
       <Routes>
+        <Route path="/" element={<Home />} />
         <Route
           path="/signup"
           element={!user ? <Signup /> : <Navigate to="/" />}
@@ -27,7 +33,7 @@ const App = () => {
           path="/login"
           element={!user ? <Login /> : <Navigate to="/" />}
         />
-        <Route path="/" element={user ? <Home /> : <Navigate to="/login" />} />
+
         <Route path="*" element={<NotFound />} />
         <Route
           path="/invoice/:id"
