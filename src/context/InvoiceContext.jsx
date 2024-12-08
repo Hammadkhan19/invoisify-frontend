@@ -11,11 +11,11 @@ export const InvoiceProvider = ({ children }) => {
   const [isEditMode, setIsEditMode] = useState(false);
   const { user } = useContext(AuthContext);
   const token = user?.token;
-
+  const Base_URL = import.meta.env.VITE_API_URL;
   // Function to fetch invoice data
   const fetchInvoiceData = async (invoiceId) => {
     try {
-      const response = await fetch(`http://localhost:3000/invoices/${invoiceId}`, {
+      const response = await fetch(`${Base_URL}/invoices/${invoiceId}`, {
         headers: {
           'Authorization': `Bearer ${token}`,
           'Content-Type': 'application/json',
