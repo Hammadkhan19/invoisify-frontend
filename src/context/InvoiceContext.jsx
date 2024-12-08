@@ -36,7 +36,7 @@ export const InvoiceProvider = ({ children }) => {
   const updateInvoiceData = async (invoiceId, updatedData) => {
     console.log("Invoice ID of put:", invoiceId);
     try {
-      const response = await fetch(`http://localhost:3000/invoices/${invoiceId}`, {
+      const response = await fetch(`${Base_URL}/invoices/${invoiceId}`, {
         method: 'PUT',
         headers: {
           'Authorization': `Bearer ${token}`,
